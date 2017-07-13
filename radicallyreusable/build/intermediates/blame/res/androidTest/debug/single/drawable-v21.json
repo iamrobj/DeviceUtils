@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/home/jj/.android/build-cache/74e8602aec134a1487ea2efa47aa05ac63c572e9/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/snackbar_selectable_background.xml",
+        "source": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/bundles/debug/res/drawable-v21/snackbar_selectable_background.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/notification_action_background.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/avd_show_password.xml",
+        "source": "/home/jj/.android/build-cache/74e8602aec134a1487ea2efa47aa05ac63c572e9/output/res/drawable-v21/avd_show_password.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/design_password_eye.xml",
+        "source": "/home/jj/.android/build-cache/74e8602aec134a1487ea2efa47aa05ac63c572e9/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/home/jj/.android/build-cache/74e8602aec134a1487ea2efa47aa05ac63c572e9/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/drawable-v21/abc_edit_text_material.xml"
+    }
+]

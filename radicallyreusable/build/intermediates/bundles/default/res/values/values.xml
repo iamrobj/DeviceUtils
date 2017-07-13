@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#fefefe</color>
+    <color name="snackbar_bg_color">#323232</color>
+    <dimen name="drawer_width">280dp</dimen>
+    <string name="app_name">RadicallyReusable</string>
+    <string name="enable">Enable</string>
+    <string name="ignore">Ignore</string>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+</resources>
