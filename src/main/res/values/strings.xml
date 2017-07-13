@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RadicallyReusable</string>
+    <string name="ignore">Ignore</string>
+    <string name="enable">Enable</string>
+</resources>

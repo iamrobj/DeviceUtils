@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Can'tTalk.iml" filepath="$PROJECT_DIR$/../Can'tTalk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../notificationhelperlibrary/notificationhelperlibrary.iml" filepath="$PROJECT_DIR$/../notificationhelperlibrary/notificationhelperlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/radicallyreusable.iml" filepath="$PROJECT_DIR$/radicallyreusable.iml" />
+    </modules>
+  </component>
+</project>
