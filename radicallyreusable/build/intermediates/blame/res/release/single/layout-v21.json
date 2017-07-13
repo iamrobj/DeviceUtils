@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
-        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_template_custom_big.xml"
-    },
-    {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
         "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_action.xml"
     },
     {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
-        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_template_icon_group.xml"
     },
     {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
-        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/layout-v21/notification_action_tombstone.xml"
     }
 ]

@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+        "outputFile": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -372,7 +372,7 @@
                     "endOffset": 1410
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/colors.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -1455,7 +1455,7 @@
                     "endOffset": 5328
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/colors.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/colors.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -3716,7 +3716,7 @@
                     "endOffset": 43932
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/dimens.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/dimens.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -5350,7 +5350,7 @@
                     "endOffset": 49601
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/strings.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 1,
                         "startColumn": 4,
@@ -5426,7 +5426,7 @@
                     "endOffset": 49996
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/strings.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -5445,7 +5445,7 @@
                     "endOffset": 50038
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/strings.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/strings.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -5694,7 +5694,7 @@
                     "endOffset": 51706
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/styles.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -5713,7 +5713,7 @@
                     "endOffset": 51786
                 },
                 "from": {
-                    "file": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/src/main/res/values/styles.xml",
+                    "file": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/src/main/res/values/styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/sharedHome/jj/AndroidProjects/Can'tTalk/radicallyreusable/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "/sharedHome/jj/AndroidProjects/radicallyreusable/radicallyreusable/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/home/jj/.android/build-cache/b766b47ada1c1a2d7cded3782f7bfaa0c6be1058/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }
 ]
