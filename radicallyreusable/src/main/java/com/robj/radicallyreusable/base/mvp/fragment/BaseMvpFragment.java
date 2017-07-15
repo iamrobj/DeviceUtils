@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.robj.radicallyreusable.R;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by jj on 05/02/17.
  */
@@ -38,7 +36,6 @@ public abstract class BaseMvpFragment<V extends BaseMvpView, P extends BaseMvpPr
     public final View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstance) {
         super.onCreateView(inflater, container, savedInstance);
         final View v = inflater.inflate(getLayoutResId(), container, false);
-        ButterKnife.bind(this, v);
         return v;
     }
 

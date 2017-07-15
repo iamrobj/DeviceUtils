@@ -10,13 +10,9 @@ import android.view.MenuItem;
 
 import com.hannesdorfmann.mosby.mvp.MvpActivity;
 import com.robj.radicallyreusable.R;
-import com.robj.radicallyreusable.R2;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpFragment;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpPresenter;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by jj on 19/02/17.
@@ -26,7 +22,6 @@ public abstract class BaseMvpActivity<V extends BaseMvpView, P extends BaseMvpPr
 
     protected final String TAG = getClass().getSimpleName();
 
-    @BindView(R2.id.toolbar)
     Toolbar toolbar;
 
     private BaseMvpFragment currentFragment;
@@ -36,7 +31,7 @@ public abstract class BaseMvpActivity<V extends BaseMvpView, P extends BaseMvpPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResId());
-        ButterKnife.bind(this);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 

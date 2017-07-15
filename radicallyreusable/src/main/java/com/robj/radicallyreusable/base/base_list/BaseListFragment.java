@@ -11,13 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.robj.radicallyreusable.R;
-import com.robj.radicallyreusable.R2;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpFragment;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpPresenter;
 
 import java.util.Collection;
-
-import butterknife.BindView;
 
 /**
  * Created by jj on 05/02/17.
@@ -26,15 +23,10 @@ import butterknife.BindView;
 public abstract class BaseListFragment<V extends BaseListView<T>, P extends BaseMvpPresenter<V>,
         A extends BaseListRecyclerAdapter, T extends Object> extends BaseMvpFragment<V, P> implements BaseListView<T>, SwipeRefreshLayout.OnRefreshListener {
 
-    @BindView(R2.id.list)
     RecyclerView list;
-    @BindView(R2.id.progress_container)
     View progressContainer;
-    @BindView(R2.id.progress)
     ProgressBar progress;
-    @BindView(R2.id.progress_label)
     TextView progressLabel;
-    @BindView(R2.id.swipe_to_refresh)
     SwipeRefreshLayout swipeToRefresh;
 
     private A adapter;
@@ -44,18 +36,12 @@ public abstract class BaseListFragment<V extends BaseListView<T>, P extends Base
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        findViewsIfIncluded(view);
+        findViews(view);
         initList();
         initSwipeToRefresh();
     }
 
-    /**
-     * I think because the library can't find R2 id's from an included layout
-     * @param view
-     */
-    private void findViewsIfIncluded(View view) {
-        if(list != null)
-            return;
+    private void findViews(View view) {
         list = (RecyclerView) view.findViewById(R.id.list);
         progressContainer = view.findViewById(R.id.progress_container);
         progress = (ProgressBar) view.findViewById(R.id.progress);
