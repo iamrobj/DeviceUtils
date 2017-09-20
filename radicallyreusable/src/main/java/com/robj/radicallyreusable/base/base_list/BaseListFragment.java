@@ -32,6 +32,7 @@ public abstract class BaseListFragment<V extends BaseListView<T>, P extends Base
     private A adapter;
     private OnScrollToLoadListener onScrollToLoadListener;
     private boolean hasMoreToLoad;
+    private boolean isSwipeEnabled;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public abstract class BaseListFragment<V extends BaseListView<T>, P extends Base
 
     private void initSwipeToRefresh() {
         swipeToRefresh.setOnRefreshListener(this);
+        setSwipeToRefreshEnabled(false); //Disable swipe by default
     }
 
     private void initList() {
@@ -118,7 +120,8 @@ public abstract class BaseListFragment<V extends BaseListView<T>, P extends Base
     public void hideProgress() {
         progressContainer.setVisibility(View.GONE);
         swipeToRefresh.setRefreshing(false);
-        swipeToRefresh.setEnabled(true);
+        if(isSwipeEnabled)
+            swipeToRefresh.setEnabled(true);
     }
 
     @Override
@@ -147,6 +150,15 @@ public abstract class BaseListFragment<V extends BaseListView<T>, P extends Base
         progressLabel.setText(errorResId);
         swipeToRefresh.setRefreshing(false);
         swipeToRefresh.setEnabled(true);
+    }
+
+    public void setSwipeToRefreshEnabled(boolean isEnabled) {
+        this.isSwipeEnabled = isEnabled;
+        swipeToRefresh.setEnabled(isEnabled);
+    }
+
+    protected SwipeRefreshLayout getSwipeToRefreshView() {
+        return swipeToRefresh;
     }
 
     protected A getAdapter() {
