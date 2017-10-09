@@ -2,6 +2,7 @@ package com.robj.radicallyreusable.base;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 
 import com.robj.radicallyreusable.base.base_list.BaseListRecyclerAdapter;
 
@@ -15,6 +16,8 @@ public abstract class BaseSearchAdapter<T extends Searchable, VH extends Recycle
 
     private ArrayList<T> visibleObjects = new ArrayList<>();
     private ArrayList<T> allObjects = new ArrayList<>();
+
+    private boolean allowSearchInside = false;
 
     public BaseSearchAdapter(Context context) {
         super(context);
@@ -35,12 +38,24 @@ public abstract class BaseSearchAdapter<T extends Searchable, VH extends Recycle
 
     public void setFilter(String queryText) {
         visibleObjects.clear();
-        for (T app: allObjects)
-            if (app.getName().toLowerCase().startsWith(queryText))
-                visibleObjects.add(app);
+        for (T t: allObjects)
+            if (!TextUtils.isEmpty(t.getName()) &&
+                    (allowSearchInside ? t.getName().toLowerCase().contains(queryText) : t.getName().toLowerCase().startsWith(queryText)))
+                visibleObjects.add(t);
         clear();
         super.addAll(visibleObjects);
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void clear() {
+        super.clear();
+        visibleObjects.clear();
+        allObjects.clear();
+    }
+
+    public void allowSearchInside(boolean allowSearchInside) {
+        this.allowSearchInside = allowSearchInside;
     }
 
 }
