@@ -31,7 +31,7 @@ public abstract class BaseSearchAdapter<T extends Searchable, VH extends Recycle
 
     public void flushFilter(){
         visibleObjects.clear();
-        clear();
+        super.clear();
         super.addAll(allObjects);
         notifyDataSetChanged();
     }
@@ -42,12 +42,11 @@ public abstract class BaseSearchAdapter<T extends Searchable, VH extends Recycle
             if (!TextUtils.isEmpty(t.getName()) &&
                     (allowSearchInside ? t.getName().toLowerCase().contains(queryText) : t.getName().toLowerCase().startsWith(queryText)))
                 visibleObjects.add(t);
-        clear();
+        super.clear();
         super.addAll(visibleObjects);
         notifyDataSetChanged();
     }
 
-    @Override
     public void clear() {
         super.clear();
         visibleObjects.clear();
