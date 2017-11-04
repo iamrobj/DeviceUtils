@@ -2,8 +2,8 @@ package com.robj.radicallyreusable.base.mvp.fragment;
 
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 
-import rx.Subscription;
-import rx.subscriptions.CompositeSubscription;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by jj on 05/02/17.
@@ -12,7 +12,7 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseMvpPresenter<V extends BaseMvpView> extends MvpBasePresenter<V> {
 
     public final String TAG = getClass().getSimpleName();
-    private CompositeSubscription subscriptions = new CompositeSubscription();
+    private CompositeDisposable subscriptions = new CompositeDisposable();
 
     public void onResume() { }
 
@@ -21,13 +21,13 @@ public abstract class BaseMvpPresenter<V extends BaseMvpView> extends MvpBasePre
     }
 
     protected void unsubscribeAll() {
-        if(!subscriptions.isUnsubscribed())
-            subscriptions.unsubscribe();
-        subscriptions = new CompositeSubscription(); //TODO: Is this required??
+        if(!subscriptions.isDisposed())
+            subscriptions.dispose();
+        subscriptions = new CompositeDisposable(); //TODO: Is this required??
     }
 
-    public void addSubscription(Subscription subscription) {
-        subscriptions.add(subscription);
+    public void addSubscription(Disposable disposable) {
+        subscriptions.add(disposable);
     }
 
 }
