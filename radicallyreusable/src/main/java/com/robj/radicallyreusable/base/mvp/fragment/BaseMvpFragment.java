@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.robj.radicallyreusable.R;
 
 /**
- * Created by jj on 05/02/17.
+ * Created by Rob J on 05/02/17.
  */
 
 public abstract class BaseMvpFragment<V extends BaseMvpView, P extends BaseMvpPresenter<V>> extends com.hannesdorfmann.mosby.mvp.MvpFragment<V, P> implements BaseMvpView {

@@ -5,7 +5,7 @@ import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpView;
 import java.util.Collection;
 
 /**
- * Created by jj on 05/02/17.
+ * Created by Rob J on 05/02/17.
  */
 public interface BaseListView<T> extends BaseMvpView {
 

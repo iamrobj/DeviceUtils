@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Created by JJ on 16/06/15.
+ * Created by Rob J on 16/06/15.
  */
 public abstract class BaseSearchAdapter<T extends Searchable, VH extends RecyclerView.ViewHolder> extends BaseListRecyclerAdapter<T, VH> {
 

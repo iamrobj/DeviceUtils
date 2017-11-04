@@ -15,7 +15,7 @@ import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpPresenter;
 import com.robj.radicallyreusable.base.mvp.fragment.BaseMvpView;
 
 /**
- * Created by jj on 19/02/17.
+ * Created by Rob J on 19/02/17.
  */
 
 public abstract class BaseMvpActivity<V extends BaseMvpView, P extends BaseMvpPresenter<V>> extends MvpActivity<V, P> {

@@ -1,14 +1,17 @@
 package com.robj.radicallyreusable.base.utils;
 
 import android.Manifest;
+import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.PhoneLookup;
 import android.text.TextUtils;
 import android.util.Log;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 
 
 /**
- * Created by JJ on 05/08/15.
+ * Created by Rob J on 05/08/15.
  */
 public class ContactUtils {
 
@@ -213,6 +216,14 @@ public class ContactUtils {
             c.close();
         }
         return numbers;
+    }
+
+    public static Bitmap getAvatar(Context context, long contactId, boolean preferHigherRes) {
+        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+        InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(context.getContentResolver(), uri, preferHigherRes);
+        if (input != null)
+            return ImageUtils.decodeStream(input);
+        return null;
     }
 
     public static class Contact {

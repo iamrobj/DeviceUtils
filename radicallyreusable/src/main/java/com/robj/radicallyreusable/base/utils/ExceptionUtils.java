@@ -1,7 +1,7 @@
 package com.robj.radicallyreusable.base.utils;
 
 /**
- * Created by jj on 04/11/17.
+ * Created by Rob J on 04/11/17.
  */
 
 public class ExceptionUtils {

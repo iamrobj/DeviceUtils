@@ -12,7 +12,7 @@ import com.robj.radicallyreusable.base.mvp.BaseViewHolder;
 import java.util.Collection;
 
 /**
- * Created by jj on 12/03/17.
+ * Created by Rob J on 12/03/17.
  */
 
 public abstract class BaseListRecyclerAdapter<O, VH extends RecyclerView.ViewHolder> extends BaseRecyclerAdapter<O, RecyclerView.ViewHolder> {

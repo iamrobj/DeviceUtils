@@ -10,7 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 
 /**
- * Created by jj on 25/09/16.
+ * Created by Rob J on 25/09/16.
  */
 public class PermissionsUtil {
 

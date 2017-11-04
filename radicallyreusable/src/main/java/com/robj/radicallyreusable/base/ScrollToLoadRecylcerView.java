@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 /**
- * Created by JJ on 05/11/2014.
+ * Created by Rob J on 05/11/2014.
  */
 public class ScrollToLoadRecylcerView extends RecyclerView {
 
