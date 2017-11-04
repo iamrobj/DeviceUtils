@@ -227,9 +227,9 @@ public class ContactUtils {
     }
 
     public static class Contact {
-        private final long contactId;
-        private final String displayName;
-        private final List<Number> numbers = new ArrayList();
+        public final long contactId;
+        public final String displayName;
+        public final List<Number> numbers = new ArrayList();
         public Contact(long contactId, String displayName) {
             this.contactId = contactId;
             this.displayName = displayName;
