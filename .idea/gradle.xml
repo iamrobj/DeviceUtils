@@ -9,7 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/radicallyreusable" />
+            <option value="$PROJECT_DIR$/billing_library" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
