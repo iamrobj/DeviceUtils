@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DeviceUtils</string>
+    <string name="device_name_unknown">Unknown</string>
+</resources>
