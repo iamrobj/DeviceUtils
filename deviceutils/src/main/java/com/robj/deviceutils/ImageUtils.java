@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 /**
- * Created by jj on 24/06/17.
+ * Created by Rob J on 24/06/17.
  */
 
 public class ImageUtils {

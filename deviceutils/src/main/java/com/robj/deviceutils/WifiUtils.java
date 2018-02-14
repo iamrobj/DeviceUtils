@@ -13,12 +13,12 @@ import java.util.List;
 import io.reactivex.Observable;
 
 /**
- * Created by jj on 16/06/17.
+ * Created by Rob J on 16/06/17.
  */
 
 public class WifiUtils {
 
-    public static Observable<List<BluetoothUtils.Device>> getWifiNetworks(Context context) {
+    public static Observable<List<BluetoothUtils.Device>> getSavedWifiNetworks(Context context) {
         return Observable.create(subscriber -> {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             List<WifiConfiguration> wifiNetworks = wifiManager.getConfiguredNetworks();

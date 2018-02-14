@@ -8,13 +8,10 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import io.reactivex.Observable;
 
@@ -39,23 +36,6 @@ public class AppUtils {
             }
             e.onNext(apps);
         });
-    }
-
-    public static App addExtrasToList(List<App> list) {
-        Log.d(TAG, "Adding extras to app list..");
-        App tmp = new App("com.android.systemui", "Android System UI");
-        int position = list.indexOf(tmp);
-        if (position >= 0)
-            return list.get(position);
-        else
-            return tmp;
-    }
-
-    public static void dedupeList(ArrayList<App> list) {
-        Set<App> hs = new LinkedHashSet<>();
-        hs.addAll(list);
-        list.clear();
-        list.addAll(hs);
     }
 
     public static Bitmap getAppIcon(Context context, String packageName, int size) {

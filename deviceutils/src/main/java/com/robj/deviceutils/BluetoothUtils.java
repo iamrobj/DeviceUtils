@@ -1,5 +1,6 @@
 package com.robj.deviceutils;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -7,6 +8,7 @@ import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -19,19 +21,20 @@ import java.util.Set;
 import io.reactivex.Observable;
 
 /**
- * Created by jj on 15/06/17.
+ * Created by Rob J on 15/06/17.
  */
 
 public class BluetoothUtils {
 
+    @SuppressLint("MissingPermission")
     public static Observable<List<Device>> getPairedDevices(Context context) {
         return Observable.create(subscriber -> {
-            if(PermissionsUtil.hasPermission(context, PermissionsUtil.BLUETOOTH_PERM)) {
+            if(PermissionsUtil.hasPermission(context, Manifest.permission.BLUETOOTH)) {
                 BluetoothAdapter mBluetoothAdapter = getDefaultAdapter(context);
                 if(mBluetoothAdapter == null) {
                     subscriber.onError(new RuntimeException("Bluetooth is not supported on this device"));
                 }
-                @SuppressLint("MissingPermission") Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+                Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
                 List<Device> devices = new ArrayList();
                 if (pairedDevices.size() > 0)
                     for (BluetoothDevice bt : pairedDevices) {
@@ -46,7 +49,7 @@ public class BluetoothUtils {
 
     private static BluetoothAdapter getDefaultAdapter(Context context) {
         BluetoothAdapter bluetoothAdapter;
-        if(VersionUtils.isJellyBeanMR2()) {
+        if(Build.VERSION.SDK_INT >= 18) {
             BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
             bluetoothAdapter = bluetoothManager.getAdapter();
         } else
@@ -79,7 +82,7 @@ public class BluetoothUtils {
             return deviceAlias;
     }
 
-    public static boolean isSupported(Context context) {
+    public static boolean isBluetoothSupported(Context context) {
         return getDefaultAdapter(context) != null;
     }
 
@@ -113,7 +116,7 @@ public class BluetoothUtils {
                 }
 
                 public void onServiceDisconnected(int profile) {
-                    onBluetoothConnection.onNoConnection(); //TODO: TEST
+                    onBluetoothConnection.onNoConnection();
                 }
             };
             BluetoothAdapter.getDefaultAdapter().getProfileProxy(context, mProfileListener, profileType);
