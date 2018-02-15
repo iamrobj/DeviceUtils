@@ -32,7 +32,11 @@ public class BluetoothUtils {
             if(PermissionsUtil.hasPermission(context, Manifest.permission.BLUETOOTH)) {
                 BluetoothAdapter mBluetoothAdapter = getDefaultAdapter(context);
                 if(mBluetoothAdapter == null) {
-                    subscriber.onError(new RuntimeException("Bluetooth is not supported on this device"));
+                    if(subscriber != null && !subscriber.isDisposed()) {
+                        subscriber.onError(new RuntimeException("Bluetooth is not supported on this device"));
+                        subscriber.onComplete();
+                    }
+                    return;
                 }
                 Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
                 List<Device> devices = new ArrayList();
@@ -41,9 +45,16 @@ public class BluetoothUtils {
                         Device device = new Device(bt);
                         devices.add(device);
                     }
-                subscriber.onNext(devices);
-            } else
-                subscriber.onError(new RuntimeException("Bluetooth permission is missing"));
+                if(subscriber != null && !subscriber.isDisposed()) {
+                    subscriber.onNext(devices);
+                    subscriber.onComplete();
+                }
+            } else {
+                if(subscriber != null && !subscriber.isDisposed()) {
+                    subscriber.onError(new RuntimeException("Bluetooth permission is missing"));
+                    subscriber.onComplete();
+                }
+            }
         });
     }
 
@@ -129,39 +140,26 @@ public class BluetoothUtils {
             getConnectedBluetoothDevice(context, new OnBluetoothConnection() {
                 @Override
                 public void onConnected(BluetoothDevice device) {
-                    if(!subscriber.isDisposed())
+                    if(subscriber != null && !subscriber.isDisposed()) {
                         subscriber.onNext(new Optional(device));
+                        subscriber.onComplete();
+                    }
                 }
                 @Override
                 public void onNoConnection() {
-                    if(!subscriber.isDisposed())
+                    if(subscriber != null && !subscriber.isDisposed()) {
                         subscriber.onNext(new Optional(null));
+                        subscriber.onComplete();
+                    }
                 }
             });
         });
     }
 
-    public static class Device {
-
-        private final String uniqueIdentifier;
-        private final String name;
+    public static class Device extends BaseDevice {
 
         public Device(BluetoothDevice bt) {
-            uniqueIdentifier = bt.getAddress();
-            name = bt.getName();
-        }
-
-        public Device(WifiConfiguration wifiConfiguration) {
-            uniqueIdentifier = String.valueOf(wifiConfiguration.networkId);
-            name = wifiConfiguration.SSID;
-        }
-
-        public String getUniqueIdentifier() {
-            return uniqueIdentifier;
-        }
-
-        public String getName() {
-            return name;
+            super(bt.getAddress(), bt.getName());
         }
 
     }

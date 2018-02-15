@@ -18,17 +18,20 @@ import io.reactivex.Observable;
 
 public class WifiUtils {
 
-    public static Observable<List<BluetoothUtils.Device>> getSavedWifiNetworks(Context context) {
+    public static Observable<List<Device>> getSavedWifiNetworks(Context context) {
         return Observable.create(subscriber -> {
             WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             List<WifiConfiguration> wifiNetworks = wifiManager.getConfiguredNetworks();
-            List<BluetoothUtils.Device> devices = new ArrayList();
+            List<Device> devices = new ArrayList();
             if(wifiNetworks != null && wifiNetworks.size() > 0)
                 for(WifiConfiguration wifiConfiguration : wifiNetworks) {
-                    BluetoothUtils.Device device = new BluetoothUtils.Device(wifiConfiguration);
+                    Device device = new Device(wifiConfiguration);
                     devices.add(device);
                 }
-            subscriber.onNext(devices);
+            if(subscriber != null && !subscriber.isDisposed()) {
+                subscriber.onNext(devices);
+                subscriber.onComplete();
+            }
         });
     }
 
@@ -69,17 +72,25 @@ public class WifiUtils {
         return Observable.create(subscriber -> {
             try {
                 WifiInfo wifiInfo = getConnectedWifi(context);
-                if(!subscriber.isDisposed()) {
+                if(subscriber != null && !subscriber.isDisposed()) {
                     if (wifiInfo != null)
                         subscriber.onNext(new Optional(wifiInfo));
                     else
                         subscriber.onNext(new Optional(null));
+                    subscriber.onComplete();
                 }
             } catch (Exception e) {
                 if(!subscriber.isDisposed())
                     subscriber.onError(e);
             }
         });
+    }
+
+    public static class Device extends BaseDevice {
+
+        protected Device(WifiConfiguration wifiConfiguration) {
+            super(String.valueOf(wifiConfiguration.networkId), wifiConfiguration.SSID);
+        }
     }
 
 }
