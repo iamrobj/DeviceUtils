@@ -39,9 +39,11 @@ public class WifiUtils {
     public static String getWifiName(Context context, String typeIdentifier) {
         WifiManager wifiMgr = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         List<WifiConfiguration> wifiConfigurations = wifiMgr.getConfiguredNetworks();
-        for(WifiConfiguration wifiConfiguration : wifiConfigurations)
-            if(String.valueOf(wifiConfiguration.networkId).equals(typeIdentifier))
-                return wifiConfiguration.SSID;
+        if(wifiConfigurations != null) {
+            for (WifiConfiguration wifiConfiguration : wifiConfigurations)
+                if (String.valueOf(wifiConfiguration.networkId).equals(typeIdentifier))
+                    return wifiConfiguration.SSID;
+        }
         return context.getString(R.string.device_name_unknown);
     }
 
