@@ -48,7 +48,7 @@ public class AppUtils {
             return bitmap;
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("NotificationUtils", "No icon found..");
+            Log.e(TAG, "No icon found..");
             return null;
         }
     }
@@ -61,7 +61,7 @@ public class AppUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "Unknown";
+        return null; //Unknown
     }
 
     public static class App {
