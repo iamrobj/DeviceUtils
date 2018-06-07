@@ -102,9 +102,11 @@ public class ContactUtils {
                 null,
                 null);
         if(cursor != null) {
+            int nameColIndex = cursor.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME);
+            int idColIndex = cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID);
             if (cursor.moveToNext()) {
-                long contactId = cursor.getLong(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
-                String displayName = cursor.getString(cursor.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME));
+                long contactId = cursor.getLong(idColIndex);
+                String displayName = cursor.getString(nameColIndex);
                 contact = new Contact(contactId, displayName, getPhoneNumbers(context, contactId));
             }
             cursor.close();
@@ -122,9 +124,11 @@ public class ContactUtils {
                         new String[]{ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME},
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{String.valueOf(id)}, null);
                 if (c != null) {
+                    int idColIndex = c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID);
+                    int nameColIndex = c.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME);
                     while (c.moveToNext()) {
-                        long contactId = c.getLong(c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-                        String displayName = c.getString(c.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME));
+                        long contactId = c.getLong(idColIndex);
+                        String displayName = c.getString(nameColIndex);
                         contact = new Contact(contactId, displayName, getPhoneNumbers(context, contactId));
                     }
                     c.close();
@@ -144,8 +148,9 @@ public class ContactUtils {
                         new String[]{ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME},
                         ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{String.valueOf(id)}, null);
                 if (c != null) {
+                    int nameColIndex = c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME);
                     while (c.moveToNext())
-                        name = c.getString(c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME));
+                        name = c.getString(nameColIndex);
                     c.close();
                 }
             } else
@@ -154,7 +159,7 @@ public class ContactUtils {
         return name;
     }
     
-    public static Observable<List<Contact>> getContactsObservable(Context context) {
+    public static Observable<List<Contact>> getContactsObservable(Context context, boolean withNumbers) {
         return Observable.create((ObservableOnSubscribe<List<Contact>>) e -> {
             try {
                 if(!PermissionsUtil.hasPermission(context, Manifest.permission.READ_CONTACTS))
@@ -164,13 +169,18 @@ public class ContactUtils {
                         new String[]{ContactsContract.CommonDataKinds.Phone.CONTACT_ID, PhoneLookup.DISPLAY_NAME},
                         null, null, PhoneLookup.DISPLAY_NAME);
                 if (cur != null) {
-                    while (cur.moveToNext()) {
-                        long contactId = cur.getLong(cur.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-                        String displayName = cur.getString(cur.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME));
-                        Contact tmp = new Contact(contactId, displayName, getPhoneNumbers(context, contactId));
-                        contacts.add(tmp);
+                    try {
+                        int idColIndex = cur.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID);
+                        int nameColIndex = cur.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME);
+                        while (cur.moveToNext()) {
+                            long contactId = cur.getLong(idColIndex);
+                            String displayName = cur.getString(nameColIndex);
+                            Contact tmp = withNumbers ? new Contact(contactId, displayName, getPhoneNumbers(context, contactId)) : new Contact(contactId, displayName);
+                            contacts.add(tmp);
+                        }
+                    } finally {
+                        cur.close();
                     }
-                    cur.close();
                 }
                 e.onNext(contacts);
             } catch (Exception ex) {
@@ -188,9 +198,11 @@ public class ContactUtils {
                 Cursor c = context.getContentResolver().query(uri, new String[]{ ContactsContract.CommonDataKinds.Phone.CONTACT_ID, PhoneLookup.DISPLAY_NAME },
                         ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " = ?", new String[]{ name }, null);
                 if (c != null) {
+                    int idColIndex = c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID);
+                    int nameColIndex = c.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME);
                     while (c.moveToNext()) {
-                        long contactId = c.getLong(c.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-                        String displayName = c.getString(c.getColumnIndexOrThrow(PhoneLookup.DISPLAY_NAME));
+                        long contactId = c.getLong(idColIndex);
+                        String displayName = c.getString(nameColIndex);
                         contact = new Contact(contactId, displayName, getPhoneNumbers(context, contactId));
                     }
                     c.close();
@@ -206,9 +218,11 @@ public class ContactUtils {
                 ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
         List<Number> numbers = new ArrayList();
         if (c != null) {
+            int numColIndex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            int typeColIndex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE);
             while (c.moveToNext()) {
-                String number = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                int type = c.getInt(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
+                String number = c.getString(numColIndex);
+                int type = c.getInt(typeColIndex);
                 numbers.add(new Number(number, type));
             }
             c.close();
